@@ -1,0 +1,6 @@
+_cache
+_site
+dist
+result
+.envrc
+content/images/*

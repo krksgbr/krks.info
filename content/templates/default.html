@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta property="og:title" content="Gábor Kerekes">
+    <meta property="og:description" content="Full stack developer">
+    <meta property="og:image" content="">
+    <meta property="og:url" content="https://krks.info">
+    <meta property="og:site_name" content="krks.info">
+    <meta name="twitter:title" content="Gábor Kerekes">
+    <meta name="twitter:description" content="Full stack developer">
+    <meta name="twitter:image" content="">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <title>Gábor Kerekes</title>
+    <meta name="description" content="Full stack developer" />
+
+    <link rel="stylesheet" href="/css/default.css" />
+    <link rel="stylesheet" href="/css/spinner.css" />
+    <link href="https://fonts.googleapis.com/css?family=Chivo:300,400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+
+    <script>
+
+     function enableSpinner(){
+       const l = document.querySelector(".spinner-container");
+       l.classList.remove("disabled");
+     }
+
+     const tm = setTimeout(enableSpinner, 500);
+
+     function loaded(){
+       clearTimeout(tm);
+       const sp = document.querySelector(".spinner-container");
+       sp.parentNode.removeChild(sp);
+
+       const root = document.querySelector(".root");
+       root.classList.remove("loading");
+     }
+
+    </script>
+    <style>
+      .root.loading {
+        opacity: 0;
+      }
+
+      .root:not(.loading){
+        opacity: 1;
+        transition: opacity 500ms;
+      }
+
+     .spinner-container.disabled {
+       display: none;
+     }
+
+      .spinner-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    </style>
+  </head>
+  <body onload="loaded()">
+    <div class="disabled spinner-container">
+      $partial("templates/spinner.html")$
+    </div>
+    <div class="root loading">
+      <header class="row">
+        <div class="name title">
+          <a href="/">Gábor Kerekes</a>
+        </div>
+        <nav>
+          <a href="/#about">About</a>
+          <a href="/#projects">Projects</a>
+          <a href="/#cv">CV</a>
+          <a href="/#contact">Contact</a>
+        </nav>
+      </header>
+
+      <main role="main">
+        $body$
+      </main>
+
+      <footer class="row">
+        <div>
+          Site generated with
+          <a href="http://jaspervdj.be/hakyll">Hakyll</a>.
+        </div>
+        <div>
+          <a href="https://github.com/krksgbr/krks.info" target="_blank">Source code</a>
+        </div>
+      </footer>
+    </div>
+    <noscript><style>.loading { opacity: 1 !important; }</style></noscript>
+    <script>
+     (function(w, d){
+       var b = document.body;
+       var s = d.createElement("script");
+       var v = !("IntersectionObserver" in w) ? "8.17.0" : "10.19.0";
+       s.async = true;
+       s.src = "https://cdn.jsdelivr.net/npm/vanilla-lazyload@" + v + "/dist/lazyload.min.js";
+       w.lazyLoadOptions = {
+         elements_selector: ".lazy"
+       };
+       b.appendChild(s);
+     }(window, document));
+    </script>
+  </body>
+</html>

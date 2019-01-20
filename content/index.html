@@ -1,0 +1,40 @@
+<section id="about" class="row">
+  <h1 class="title">About</h1>
+  <div class="content">$about$</div>
+</section>
+<section id="projects" class="row">
+  <h1 class="title">Projects</h1>
+  <div class="content">
+    <ul>
+      $for(projects)$
+       $partial("templates/project.html")$
+      $endfor$
+    </ul>
+  </div>
+</section>
+<section id="rndrProjects" class="row">
+  <h1 class="title">Projects <a href="https://rndr.studio" target="__blank">@RNDR</a></h1>
+  <div class="content">
+    <p>Projects I've worked on at RNDR.</p>
+    <ul>
+      $for(rndrProjects)$
+       $partial("templates/project.html")$
+      $endfor$
+    </ul>
+  </div>
+</section>
+<section id="cv" class="row">
+  <div>
+    <h1 class="title">CV</h1>
+    <a href="/files/CV-Gabor-Kerekes.pdf" target="__blank">[PDF]</a>
+  </div>
+  <div class="content">
+    $cv$
+  </div>
+</section>
+<section id="contact" class="row">
+  <h1 class="title">Contact</h1>
+  <div class="content">
+    $contact$
+  </div>
+</section>

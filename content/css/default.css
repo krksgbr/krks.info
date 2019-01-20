@@ -1,0 +1,294 @@
+html {
+  font-size: 105%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Chivo;
+  font-weight: 100;
+}
+
+li{
+  margin-bottom: 0.5rem;
+}
+
+h1, h2, h3, h4 {
+  font-weight: 400;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+
+
+a {
+  color: hsl(165, 100%, 35%);
+}
+
+
+li {
+  list-style-position: outside;
+  list-style-type: none;
+}
+
+.row {
+  width: 100%;
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  min-height: 10vh;
+}
+
+@media (min-width: 1024px){
+  .row {
+    display: grid;
+    padding-left: 10%;
+    padding-right: 10%;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+
+header {
+  display: grid;
+  grid-template-areas: "name name nav .";
+  background: white;
+  padding-bottom: 5rem;
+}
+
+header .title {
+  grid-area: name;
+}
+
+header nav {
+  grid-area: nav;
+}
+
+
+header nav {
+  display: grid;
+  align-content: start;
+}
+
+header a {
+  text-decoration: none;
+  color: black;
+}
+
+header a:hover {
+  text-decoration: underline;
+}
+
+header .name {
+  padding-bottom: 1rem;
+  font-weight: 400;
+}
+
+@media (min-width: 1024px){
+  header .name {
+    padding-bottom: 0;
+  }
+}
+
+#about {
+  background: hsl(165, 70%, 97%);
+}
+
+#about p {
+  margin-bottom: 0;
+}
+
+
+#projects, #rndrProjects {
+  background: hsl(165, 35%, 94%);
+}
+
+#projects {
+  border-bottom: 1px solid hsl(165, 20%, 85%);
+}
+
+#cv {
+  background: hsl(165, 27%, 90%);
+}
+
+#contact {
+  background: hsl(165, 20%, 85%);
+}
+
+section h1 {
+  font-size: 1rem;
+  font-weight: 100;
+  text-transform: uppercase;
+  padding-bottom: 1rem;
+}
+
+@media(min-width: 1024px){
+  section h1 {
+    padding-bottom: 0;
+  }
+}
+
+
+@media(min-width: 1024px){
+  section .content {
+    grid-column: 2 / span 3;
+  }
+}
+
+footer {
+  background: hsl(165, 8%, 55%);
+  color: white;
+  align-items: center;
+  min-height: initial !important;
+  padding-top: 1rem !important;
+  padding-bottom: 1rem !important;
+}
+
+footer a {
+  color: hsl(165, 70%, 80%);
+}
+
+
+footer div:nth-child(2){
+  grid-column: 3;
+}
+
+@media(min-width: 768px){
+  footer {
+    display: grid;
+  }
+}
+
+.project {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  grid-template-areas: "title year"
+                       "image image"
+                       "description description"
+                       "stack stack"
+  ;
+  grid-row-gap: .5rem;
+}
+
+.project:not(:last-child){
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid hsl(165, 20%, 85%);
+}
+
+.project .title {
+  grid-area: title;
+  font-weight: 400;
+}
+
+.project .title a {
+  color: black;
+  text-decoration: none;
+}
+
+.project .title a:hover {
+  text-decoration: underline;
+}
+
+.project .year {
+  grid-area:  year;
+  text-align: right;
+}
+
+@media(min-width: 1024px){
+  .project .year {
+     text-align: left;
+  }
+}
+
+.project .img-wrapper{
+  grid-area: image;
+  width: 100%;
+  background: hsl(165, 8%, 55%);
+  height: 0;
+  padding-bottom: 62.5%;
+  position: relative;
+  overflow: hidden;
+}
+
+.project img {
+  width: 100%;
+  height: auto;
+  position: absolute;
+}
+
+.project .description {
+  grid-area: description;
+}
+
+.project .stack {
+  grid-area: stack;
+  font-size: 0.9rem;
+  color: hsl(165, 20%, 60%);
+  font-family: "IBM Plex Mono", Menlo, monospace;
+}
+ .content h2 {
+   border-top: 1px solid black;
+   padding-top: .5rem;
+   padding-bottom: 2rem;
+   font-size: 1rem;
+}
+
+#cv .content h2:not(:first-of-type){
+  margin-top: 2rem;
+}
+
+#cv ul, #cv table {
+  width: 90%;
+  padding-top: 1rem;
+}
+
+@media(min-width: 1024px){
+  #cv ul, #cv table {
+    width: 70%;
+  }
+}
+
+#cv li {
+  list-style-type: disc;
+  list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAATUlEQVQ4jeXQsQ1AYBSF0ZNoNBS2sIiYU6yC0hpGUCqY4P6NcPvzveTx6VUluMOOseT6hPMVkfmJDEmgxYYDfYLXFDdYUgy1+4ER/tsuZoYNXYuxNYkAAAAASUVORK5CYII=");
+  position: relative;
+  left: 1rem;
+}
+
+@media(min-width: 1024px){
+  #cv li {
+    left: 3rem;
+  }
+}
+
+#cv .content h4 {
+  margin-top: 2rem;
+}
+
+#cv .content h4 a {
+  color: black;
+}
+
+#cv p {
+  margin-bottom: 0;
+}
+
+h2 + h4 {
+  margin-top: 0 !important;
+}
+
+#contact {
+  min-height: 70vh;
+}
+
+#contact li {
+ list-style: none;
+}
